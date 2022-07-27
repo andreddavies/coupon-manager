@@ -1,17 +1,19 @@
 import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 import store from "./store";
-import ThemeProviderWrapper from "./pages/ThemeProviderWrapper";
+import RouterProvider from "./components/Providers/RouterProvider";
+import ThemeProviderWrapper from "./components/Providers/ThemeProviderWrapper";
 
 function App() {
   return (
     <ReduxProvider store={store}>
-      <ThemeProviderWrapper>
-        <div>
-          <h2>Gerenciador de Cupom</h2>
-        </div>
-      </ThemeProviderWrapper>
+      <BrowserRouter>
+        <ThemeProviderWrapper>
+          <RouterProvider />
+        </ThemeProviderWrapper>
+      </BrowserRouter>
     </ReduxProvider>
   );
 }
