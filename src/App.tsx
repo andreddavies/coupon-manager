@@ -3,9 +3,11 @@ import { Provider as ReduxProvider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import store from "./store";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import RouterProvider from "./components/Providers/RouterProvider";
 import ThemeProviderWrapper from "./components/Providers/ThemeProviderWrapper";
-import Header from "./components/Header";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <ThemeProviderWrapper>
           <Header />
           <RouterProvider />
+          <Footer />
         </ThemeProviderWrapper>
       </BrowserRouter>
     </ReduxProvider>
