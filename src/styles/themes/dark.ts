@@ -4,6 +4,10 @@ export const dark = {
 
   background: "#282c34",
 
+  footer: {
+    background: "#20232a",
+  },
+
   form: {
     background: "#D9D9D9",
     border: "#fff",
@@ -16,7 +20,7 @@ export const dark = {
   },
 
   header: {
-    background: "#20322a",
+    background: "#20232a",
     shadow: "rgba(255, 255, 255, 0.2)",
   },
 

@@ -4,6 +4,10 @@ export const light = {
 
   background: "#FFF",
 
+  footer: {
+    background: "#164986",
+  },
+
   form: {
     border: "#164986",
     button: {
