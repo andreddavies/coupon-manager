@@ -29,4 +29,13 @@ export const dark = {
     secondary: "#000",
     tertiary: "#D9D9D9",
   },
+
+  input: {
+    background: "#fff",
+    border: "#20232a",
+    text: "#20232a",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    label: "#817E7E",
+    messageText: "#ff0000",
+  },
 };

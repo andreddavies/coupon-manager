@@ -28,4 +28,13 @@ export const light = {
     secondary: "#fff",
     tertiary: "#817E7E",
   },
+
+  input: {
+    background: "#fff",
+    border: "#164986",
+    text: "#164986",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    label: "#817E7E",
+    messageText: "#ff0000",
+  },
 };
