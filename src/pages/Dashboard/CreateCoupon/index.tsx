@@ -14,7 +14,7 @@ const CreateCoupon = (): React.ReactElement => {
     if (!store.auth.authenticated) {
       router("/");
     }
-  }, [store]);
+  }, [store, router]);
 
   return (
     <S.Container>
