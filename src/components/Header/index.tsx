@@ -5,10 +5,12 @@ import Heading from "../Heading";
 import CenterContainer from "../CenterContainer";
 
 import { RootState } from "../../store";
+import { useDeviceDetect } from "../../hooks/useDeviceDetect";
 
 import * as S from "./styles";
 
 const Header = (): React.ReactElement => {
+  const { isMobile } = useDeviceDetect();
   const store = useSelector((state: RootState) => state);
 
   return (
@@ -21,9 +23,9 @@ const Header = (): React.ReactElement => {
 
           <Heading
             type="h1"
-            size={1.15}
             weight="600"
             align="center"
+            size={isMobile ? 1.15 : 2}
             color={store.theme === "light" ? "secondary" : "primary"}
           >
             Gerenciador de Cupons
