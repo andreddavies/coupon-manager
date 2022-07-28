@@ -30,11 +30,24 @@ export const light = {
   },
 
   input: {
-    background: "#fff",
-    border: "#164986",
-    text: "#164986",
-    shadow: "rgba(0, 0, 0, 0.2)",
     label: "#817E7E",
-    messageText: "#ff0000",
+    background: "#fff",
+    messageText: "#E51F28",
+    shadow: "rgba(0, 0, 0, 0.2)",
+
+    initial: {
+      border: "#164986",
+      text: "#164986",
+    },
+
+    invalid: {
+      border: "#E51F28",
+      text: "#E51F28",
+    },
+
+    valid: {
+      border: "#007F5C",
+      text: "#007F5C",
+    },
   },
 };
