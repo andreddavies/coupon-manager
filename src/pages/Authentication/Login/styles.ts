@@ -10,6 +10,10 @@ const Container = styled.div`
 
 const TextWrapper = styled.div`
   margin-bottom: 20px;
+
+  @media screen and (min-width: 1281px) {
+    margin: 50px 0;
+  }
 `;
 
 export { Container, TextWrapper };
