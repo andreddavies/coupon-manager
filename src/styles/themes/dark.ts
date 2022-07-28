@@ -1,1 +1,28 @@
-export const dark = {};
+export const dark = {
+  primary: "#20232a",
+  secondary: "#282c34",
+
+  background: "#282c34",
+
+  form: {
+    background: "#D9D9D9",
+    border: "#fff",
+    button: {
+      background: "#282c34",
+      hover: "#282c3499",
+      active: "#282c3444",
+      text: "#fff",
+    },
+  },
+
+  header: {
+    background: "#20322a",
+    shadow: "rgba(255, 255, 255, 0.2)",
+  },
+
+  heading: {
+    primary: "#fff",
+    secondary: "#000",
+    tertiary: "#D9D9D9",
+  },
+};

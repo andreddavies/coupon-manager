@@ -1,11 +1,21 @@
 export const light = {
   primary: "#5074b6",
   secondary: "#164986",
-  tertiary: "#002259",
-  quaternary: "#292837",
+
+  background: "#FFF",
+
+  form: {
+    border: "#164986",
+    button: {
+      background: "#164986",
+      hover: "#16498699",
+      active: "#16498644",
+      text: "#fff",
+    },
+  },
 
   header: {
-    background: "#5074b6",
+    background: "#164986",
     shadow: "rgba(0, 0, 0, 0.2)",
   },
 
