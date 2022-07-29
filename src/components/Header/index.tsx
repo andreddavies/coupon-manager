@@ -18,7 +18,10 @@ const Header = (): React.ReactElement => {
       <CenterContainer>
         <S.ContentContainer>
           <S.LogoContainer>
-            <img alt="Logo do Gerenciador de Cupom" src="/logo1000.png" />
+            <img
+              alt="Logo do Gerenciador de Cupom"
+              src={`/${store.theme}/logo1000.png`}
+            />
           </S.LogoContainer>
 
           <Heading
