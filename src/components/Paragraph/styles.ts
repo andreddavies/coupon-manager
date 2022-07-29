@@ -8,12 +8,12 @@ type Props = {
   weight: "400" | "500" | "600" | "700" | "900";
 };
 
-const Container = styled.div<Props>`
+const Paragraph = styled.p<Props>`
   text-align: ${({ align }) => align};
   font-weight: ${({ weight }) => weight};
   font-size: ${({ size }) => `${size}rem`};
   cursor: ${({ pointer }) => pointer && "pointer"};
-  color: ${({ theme, color }) => theme.heading[color]};
+  color: ${({ theme, color }) => theme.paragraph[color]};
 
   & > strong {
     font-weight: ${({ weight }) =>
@@ -21,4 +21,4 @@ const Container = styled.div<Props>`
   }
 `;
 
-export { Container };
+export { Paragraph };

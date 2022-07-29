@@ -7,35 +7,32 @@ type Props = {
   color: string;
   align?: string;
   pointer?: boolean;
-  type: "h1" | "h2" | "h3" | "h4";
   weight: "400" | "500" | "600" | "700" | "900";
   children: React.ReactElement | React.ReactElement[] | string;
-  onClick?: (event: React.MouseEvent<HTMLHeadingElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLParagraphElement>) => void;
 };
 
-const Heading = ({
+const Paragraph = ({
   size,
-  type,
   color,
+  align,
   weight,
   onClick,
   pointer,
   children,
-  align = "center",
 }: Props): React.ReactElement => {
   return (
-    <S.Container
-      as={type}
+    <S.Paragraph
       size={size}
       color={color}
       align={align}
       weight={weight}
-      onClick={onClick}
       pointer={pointer}
+      onClick={onClick}
     >
       {children}
-    </S.Container>
+    </S.Paragraph>
   );
 };
 
-export default Heading;
+export default Paragraph;
