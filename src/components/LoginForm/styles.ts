@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
-const Container = styled.div``;
+const HeadingWrapper = styled.div`
+  margin-bottom: 0.5rem;
 
-export { Container };
+  @media screen and (min-width: 1281px) {
+    margin-bottom: 2rem;
+  }
+`;
+
+export { HeadingWrapper };
