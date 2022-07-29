@@ -9,11 +9,13 @@ export const light = {
   },
 
   form: {
+    background: "#fff",
     border: "#164986",
     button: {
       background: "#164986",
       hover: "#16498699",
       active: "#16498644",
+      disabled: "#16498655",
       text: "#fff",
     },
   },
@@ -49,5 +51,11 @@ export const light = {
       border: "#007F5C",
       text: "#007F5C",
     },
+  },
+
+  paragraph: {
+    primary: "#000",
+    secondary: "#fff",
+    tertiary: "#817E7E",
   },
 };
