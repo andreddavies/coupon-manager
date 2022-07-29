@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+  flex-grow: 9;
   display: flex;
-  padding: 30px 0;
+  padding: 20px 0;
   align-items: center;
   flex-direction: column;
   background-color: ${({ theme }) => theme.background};
+
+  @media screen and (min-width: 1281px) {
+    justify-content: flex-start;
+    height: calc(100vh - 180px);
+  }
 `;
 
 const TextWrapper = styled.div`
   margin-bottom: 20px;
 
   @media screen and (min-width: 1281px) {
-    margin: 50px 0;
+    margin: 30px 0;
   }
 `;
 
