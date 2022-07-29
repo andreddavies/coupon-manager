@@ -16,6 +16,7 @@ type Props = {
   minLength?: number;
   maxLength?: number;
   disabled?: boolean;
+  marginVertical?: number;
   storeDispatch?: () => void;
   isValid: (value: boolean) => void;
   validationCriteria: TValidationCriteria[];
@@ -34,6 +35,7 @@ const Input = ({
   minLength,
   maxLength,
   storeDispatch,
+  marginVertical,
   disabled = false,
   validationCriteria,
 }: Props): React.ReactElement => {
@@ -67,7 +69,7 @@ const Input = ({
   };
 
   return (
-    <S.Container width={width}>
+    <S.Container width={width} marginVertical={marginVertical}>
       <S.InputContainer variation={variation}>
         <S.Label htmlFor={id} focused={focused}>
           {label}

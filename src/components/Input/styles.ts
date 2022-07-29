@@ -18,7 +18,7 @@ const Container = styled.div<ContainerProps>`
   position: relative;
   width: ${({ width }) => (!width && "279px") || `${width}`};
   margin: ${({ marginVertical }) =>
-    (marginVertical && `${marginVertical}rem 0`) || "0.75rem 0"};
+    (marginVertical && `${marginVertical}rem 0`) || "0.70rem 0"};
 `;
 
 const InputContainer = styled.div<VariationProps>`
@@ -40,6 +40,10 @@ const Label = styled.label<LabelProps>`
   position: absolute;
   color: ${({ theme }) => theme.input.label};
   top: ${({ focused }) => (!focused && "21.6px") || "2px"};
+
+  @media screen and (min-width: 1281px) {
+    font-size: 1rem;
+  }
 `;
 
 const Input = styled.input<VariationProps>`
