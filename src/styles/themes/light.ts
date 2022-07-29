@@ -4,6 +4,10 @@ export const light = {
 
   background: "#FFF",
 
+  couponCard: {
+    background: "#5074b6",
+  },
+
   footer: {
     background: "#164986",
   },
