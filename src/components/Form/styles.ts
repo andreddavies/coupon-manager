@@ -9,7 +9,6 @@ const Container = styled.form`
   display: flex;
   padding: 30px 0;
   max-width: 622px;
-  max-height: 620px;
   border-radius: 10px;
   align-items: center;
   flex-direction: column;
