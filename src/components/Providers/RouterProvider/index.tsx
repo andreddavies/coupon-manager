@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import NotFound from "../../../pages/NotFound";
 import Dashboard from "../../../pages/Dashboard";
 import Login from "../../../pages/Authentication/Login";
+import Settings from "../../../pages/Dashboard/Settings";
 import Register from "../../../pages/Authentication/Register";
 import CreateCoupon from "../../../pages/Dashboard/CreateCoupon";
 
@@ -13,6 +14,7 @@ const RouterProvider = (): React.ReactElement => {
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard/settings" element={<Settings />} />
       <Route path="/dashboard/create-coupon" element={<CreateCoupon />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
