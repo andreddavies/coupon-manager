@@ -19,7 +19,7 @@ const CreateCoupon = ({}: Props): React.ReactElement => {
 
   useEffect(() => {
     if (!store.auth.authenticated) {
-      // router("/");
+      router("/");
     }
   }, [store, router]);
 
