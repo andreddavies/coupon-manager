@@ -40,6 +40,7 @@ const RegisterForm = (): React.ReactElement => {
   return (
     <Form
       id="registerForm"
+      buttonText="Cadastrar"
       onSubmit={handleSubmit}
       buttonDisabled={!isFormValid}
     >
