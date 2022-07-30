@@ -38,7 +38,11 @@ const CouponForm = ({ formType }: Props): React.ReactElement => {
 
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
-  const handleSubmit = async (): Promise<void> => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    event.preventDefault();
+
     await console.log("submit");
   };
 
