@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Heading from "../Heading";
 import CenterContainer from "../CenterContainer";
@@ -14,7 +14,6 @@ import * as S from "./styles";
 
 const Header = (): React.ReactElement => {
   const router = useNavigate();
-  const location = useLocation();
   const { isMobile } = useDeviceDetect();
   const store = useSelector((state: RootState) => state);
 
@@ -41,7 +40,7 @@ const Header = (): React.ReactElement => {
         </S.ContentContainer>
       </CenterContainer>
 
-      {location.pathname !== "/" && location.pathname !== "/register" && (
+      {store.auth.authenticated && (
         <S.IconWrapper onClick={() => router("/dashboard/settings")}>
           <SettingIcon
             color="tertiary"
