@@ -43,4 +43,16 @@ const LogoContainer = styled.div`
   }
 `;
 
-export { Container, ContentContainer, LogoContainer };
+const IconWrapper = styled.div`
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  position: absolute;
+
+  @media screen and (min-width: 1281px) {
+    top: 20px;
+    right: 40px;
+  }
+`;
+
+export { Container, ContentContainer, LogoContainer, IconWrapper };
