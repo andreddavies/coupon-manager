@@ -35,6 +35,14 @@ export const dark = {
     tertiary: "#828181",
   },
 
+  icons: {
+    primary: "#20232a",
+    secondary: "#282c34",
+    tertiary: "#828181",
+
+    default: "#fff",
+  },
+
   input: {
     label: "#817E7E",
     background: "#fff",

@@ -35,6 +35,14 @@ export const light = {
     tertiary: "#817E7E",
   },
 
+  icons: {
+    primary: "#5074b6",
+    secondary: "#164986",
+    tertiary: "#817E7E",
+
+    default: "#000",
+  },
+
   input: {
     label: "#817E7E",
     background: "#fff",
