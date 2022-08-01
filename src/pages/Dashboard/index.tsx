@@ -17,7 +17,7 @@ const Dashboard = (): React.ReactElement => {
   const store = useSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (!store.auth.authenticated) {
+    if (!store.auth.token) {
       router("/");
     }
   }, [store, router]);

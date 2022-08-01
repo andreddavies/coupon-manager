@@ -20,7 +20,7 @@ const Settings = (): React.ReactElement => {
   };
 
   useEffect(() => {
-    if (!store.auth.authenticated) {
+    if (!store.auth.token) {
       router("/");
     }
   }, [store, router]);
