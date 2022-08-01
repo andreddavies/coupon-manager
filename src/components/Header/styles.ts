@@ -13,6 +13,23 @@ const Container = styled.header`
   }
 `;
 
+const Toggle = styled.button`
+  border: 0;
+  height: 24px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+`;
+
+const AbsoluteContainer = styled.div`
+  width: 90%;
+  display: flex;
+  height: 100px;
+  padding-top: 10px;
+  position: absolute;
+  justify-content: space-between;
+`;
+
 const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -44,15 +61,14 @@ const LogoContainer = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  top: 10px;
-  right: 10px;
   cursor: pointer;
-  position: absolute;
-
-  @media screen and (min-width: 1281px) {
-    top: 20px;
-    right: 40px;
-  }
 `;
 
-export { Container, ContentContainer, LogoContainer, IconWrapper };
+export {
+  Toggle,
+  Container,
+  IconWrapper,
+  LogoContainer,
+  ContentContainer,
+  AbsoluteContainer,
+};
