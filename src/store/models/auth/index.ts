@@ -3,14 +3,14 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { IAuth } from "./interface";
 
-const initialState = { authenticated: false };
+const initialState: IAuth = { authenticated: false };
 
 const authReducer = createSlice({
   name: "authReducer",
   initialState,
   reducers: {
-    setUser(state, action: PayloadAction<IAuth>) {
-      return { ...state, ...action.payload };
+    setUser(_, action: PayloadAction<IAuth>) {
+      return { ...action.payload, authenticated: true };
     },
     clearUser() {
       return { authenticated: false };
