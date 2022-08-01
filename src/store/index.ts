@@ -1,4 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage/session";
+import { persistReducer, persistStore } from "redux-persist";
 
 import { IAuth } from "./models/auth/interface";
 import { ITheme } from "./models/theme/interface";
@@ -11,12 +13,24 @@ export interface IStore {
   theme: ITheme;
 }
 
-const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    theme: themeReducer,
-  },
+const persistConfig = {
+  key: "coupon-manager-key",
+  storage,
+};
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+  theme: themeReducer,
 });
 
+const reducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
+});
+
+export type Dispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export default store;
+export const persistor = persistStore(store);
