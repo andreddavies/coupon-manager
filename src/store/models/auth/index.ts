@@ -10,7 +10,7 @@ const authReducer = createSlice({
   initialState,
   reducers: {
     setUser(_, action: PayloadAction<IAuth>) {
-      return { ...action.payload, authenticated: true };
+      return { ...action.payload };
     },
     clearUser() {
       return { authenticated: false };
