@@ -10,9 +10,7 @@ import { useDeviceDetect } from "../../../hooks/useDeviceDetect";
 
 import * as S from "./styles";
 
-type Props = {};
-
-const CreateCoupon = ({}: Props): React.ReactElement => {
+const CreateCoupon = (): React.ReactElement => {
   const router = useNavigate();
   const { isMobile } = useDeviceDetect();
   const store = useSelector((state: RootState) => state);
@@ -25,18 +23,31 @@ const CreateCoupon = ({}: Props): React.ReactElement => {
 
   return (
     <S.Container>
-      <Heading
-        type="h2"
-        weight="500"
-        color="primary"
-        size={isMobile ? 1.2 : 1.8}
-      >
-        <S.TextWrapper>
+      <S.GoBackWrapper>
+        <Heading
+          pointer
+          type="h2"
+          weight="600"
+          color="tertiary"
+          size={isMobile ? 0.6 : 1}
+          onClick={() => router("/dashboard")}
+        >
+          Voltar
+        </Heading>
+      </S.GoBackWrapper>
+
+      <S.TextWrapper>
+        <Heading
+          type="h2"
+          weight="500"
+          color="primary"
+          size={isMobile ? 1.2 : 1.8}
+        >
           <>
             Crie um <strong>cupom</strong>
           </>
-        </S.TextWrapper>
-      </Heading>
+        </Heading>
+      </S.TextWrapper>
 
       <CouponForm formType="create" />
     </S.Container>

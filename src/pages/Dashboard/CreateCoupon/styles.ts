@@ -12,6 +12,12 @@ const Container = styled.div`
   }
 `;
 
+const GoBackWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  padding-bottom: 10px;
+`;
+
 const TextWrapper = styled.div`
   margin-bottom: 20px;
 
@@ -20,4 +26,4 @@ const TextWrapper = styled.div`
   }
 `;
 
-export { Container, TextWrapper };
+export { Container, GoBackWrapper, TextWrapper };

@@ -9,7 +9,7 @@ const Container = styled.div`
 
   @media screen and (min-width: 1281px) {
     justify-content: flex-start;
-    height: calc(100vh - 180px);
+    min-height: calc(100vh - 180px);
   }
 `;
 

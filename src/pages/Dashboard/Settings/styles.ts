@@ -9,7 +9,7 @@ const Container = styled.div`
 
   @media screen and (min-width: 1281px) {
     justify-content: flex-start;
-    height: calc(100vh - 180px);
+    min-height: calc(100vh - 180px);
   }
 `;
 
@@ -29,6 +29,10 @@ const TextWrapper = styled.div`
 
 const FinishAccountWrapper = styled.div`
   margin-top: 20px;
+
+  & > * {
+    margin: 50px 0;
+  }
 
   @media screen and (min-width: 1281px) {
     margin-top: 30px;
