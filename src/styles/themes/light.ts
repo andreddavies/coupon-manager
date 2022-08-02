@@ -4,8 +4,41 @@ export const light = {
 
   background: "#FFF",
 
+  button: {
+    primary: {
+      background: "#164986",
+      border: "#164986",
+      text: "#FFF",
+
+      activeBackground: "#60626C",
+      activeText: "#FFF",
+
+      focusBackground: "#000",
+      focusBorder: "#E2E3E7",
+      focusText: "#FFF",
+    },
+    secondary: {
+      background: "#ffffff99",
+      border: "#ffffff99",
+      text: "#1E2229",
+
+      activeBackground: "#A9A9AC",
+      activeText: "#1E2229",
+
+      focusBackground: "#A9A9AC",
+      focusBorder: "#1E2229",
+      focusText: "#1E2229",
+    },
+    disabled: {
+      background: "#F3F3F3",
+      border: "#E7E7E8",
+      text: "#A9A9AC",
+    },
+  },
+
   couponCard: {
     background: "#5074b6",
+    featuredTime: "#750000",
   },
 
   footer: {
@@ -33,14 +66,18 @@ export const light = {
     primary: "#000",
     secondary: "#fff",
     tertiary: "#817E7E",
+
+    urgent: "#fff",
+    danger: "#FF0000",
   },
 
   icons: {
-    primary: "#5074b6",
+    primary: "#fff",
     secondary: "#164986",
     tertiary: "#817E7E",
 
-    default: "#000",
+    urgent: "#fff",
+    default: "#fff",
   },
 
   input: {
@@ -65,9 +102,27 @@ export const light = {
     },
   },
 
+  modal: {
+    background: "#ddd",
+  },
+
   paragraph: {
     primary: "#000",
     secondary: "#fff",
     tertiary: "#817E7E",
+
+    urgent: "#fff",
+  },
+
+  toggleCheckbox: {
+    beforeBackground: "#FFF",
+    default: {
+      background: "#868687",
+      border: "#868687",
+    },
+    active: {
+      background: "#164986",
+      border: "#164986",
+    },
   },
 };

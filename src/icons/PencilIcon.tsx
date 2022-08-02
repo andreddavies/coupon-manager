@@ -4,7 +4,7 @@ import { ThemeContext } from "styled-components";
 type Props = {
   width: number;
   height: number;
-  color?: "primary" | "secondary" | "tertiary" | "default";
+  color?: "primary" | "secondary" | "tertiary" | "urgent" | "default";
 };
 
 const PencilIcon = ({
