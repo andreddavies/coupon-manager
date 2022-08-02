@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios, { AxiosError } from "axios";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import Form from "../Form";
@@ -7,6 +9,8 @@ import Input from "../Input";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
 
+import UserAPI from "../../services/UserAPI";
+import { setUser } from "../../store/models/auth";
 import { useDeviceDetect } from "../../hooks/useDeviceDetect";
 
 import * as S from "./styles";
@@ -17,6 +21,7 @@ import {
 
 const LoginForm = (): React.ReactElement => {
   const router = useNavigate();
+  const dispatch = useDispatch();
   const { isMobile } = useDeviceDetect();
 
   const [email, setEmail] = useState<string>("");
@@ -30,7 +35,23 @@ const LoginForm = (): React.ReactElement => {
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    await console.log("submit");
+
+    try {
+      const data = await UserAPI.login({ email, password });
+
+      dispatch(setUser({ ...data, authenticated: true }));
+      router("/dashboard");
+    } catch (err) {
+      const errors = err as Error | AxiosError;
+
+      if (axios.isAxiosError(errors)) {
+        if (!errors.response) throw new Error("Erro inesperado!");
+        else
+          alert(
+            (errors.response?.data as { message: string }).message as string
+          );
+      }
+    }
   };
 
   useEffect(() => {

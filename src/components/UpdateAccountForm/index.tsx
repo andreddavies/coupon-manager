@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios, { AxiosError } from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
 import Form from "../Form";
 import Input from "../Input";
 
-import { useDeviceDetect } from "../../hooks/useDeviceDetect";
+import { setUser } from "../../store/models/auth";
+import { Dispatch, RootState } from "../../store";
 
 import {
   EMAIL_VALIDATION,
   REQUIRED_VALIDATION,
 } from "../../constants/validations";
+import UserAPI from "../../services/UserAPI";
 
 const UpdateAccountForm = (): React.ReactElement => {
-  const router = useNavigate();
-  const { isMobile } = useDeviceDetect();
+  const dispatch = useDispatch<Dispatch>();
+  const store = useSelector((state: RootState) => state);
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -29,7 +32,30 @@ const UpdateAccountForm = (): React.ReactElement => {
   ): Promise<void> => {
     event.preventDefault();
 
-    await console.log("submit");
+    try {
+      const data = await UserAPI.update(
+        { name, email, password },
+        store.auth.id!,
+        store.auth.token!
+      );
+
+      if (data) {
+        const { token } = store.auth;
+        dispatch(setUser({ ...data.user, authenticated: true, token }));
+        alert("Usuário foi atualizado!");
+        window.location.reload();
+      }
+    } catch (err) {
+      const errors = err as Error | AxiosError;
+
+      if (axios.isAxiosError(errors)) {
+        if (!errors.response) throw new Error("Erro inesperado!");
+        else
+          alert(
+            (errors.response?.data as { message: string }).message as string
+          );
+      }
+    }
   };
 
   useEffect(() => {
@@ -69,9 +95,9 @@ const UpdateAccountForm = (): React.ReactElement => {
 
       <Input
         width="80%"
-        type="text"
         label="Senha"
         id="password"
+        type="password"
         value={password}
         marginVertical={0.25}
         validationCriteria={[REQUIRED_VALIDATION]}

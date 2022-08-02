@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 
 import Form from "../Form";
@@ -12,6 +13,7 @@ import {
   EMAIL_VALIDATION,
   REQUIRED_VALIDATION,
 } from "../../constants/validations";
+import UserAPI from "../../services/UserAPI";
 
 const RegisterForm = (): React.ReactElement => {
   const router = useNavigate();
@@ -30,7 +32,25 @@ const RegisterForm = (): React.ReactElement => {
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    await console.log("submit");
+
+    try {
+      const data = await UserAPI.create({ name, email, password });
+
+      if (data) {
+        alert("Usuário cadastrado com sucesso!");
+        window.location.reload();
+      }
+    } catch (err) {
+      const errors = err as Error | AxiosError;
+
+      if (axios.isAxiosError(errors)) {
+        if (!errors.response) throw new Error("Erro inesperado!");
+        else
+          alert(
+            (errors.response?.data as { message: string }).message as string
+          );
+      }
+    }
   };
 
   useEffect(() => {
@@ -85,9 +105,9 @@ const RegisterForm = (): React.ReactElement => {
 
       <Input
         width="80%"
-        type="text"
         label="Senha"
         id="password"
+        type="password"
         value={password}
         marginVertical={0.25}
         validationCriteria={[REQUIRED_VALIDATION]}

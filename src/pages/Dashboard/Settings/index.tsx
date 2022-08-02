@@ -1,22 +1,50 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Heading from "../../../components/Heading";
 import UpdateAccountForm from "../../../components/UpdateAccountForm";
 
 import { RootState } from "../../../store";
+import UserAPI from "../../../services/UserAPI";
+import { clearUser } from "../../../store/models/auth";
 import { useDeviceDetect } from "../../../hooks/useDeviceDetect";
 
 import * as S from "./styles";
 
 const Settings = (): React.ReactElement => {
   const router = useNavigate();
+  const dispatch = useDispatch();
   const { isMobile } = useDeviceDetect();
   const store = useSelector((state: RootState) => state);
 
-  const handleDeleteAccount = async (): Promise<void> => {
-    await console.log("deleted");
+  const handleDeleteAccount = async (
+    event: React.MouseEvent<HTMLHeadingElement, MouseEvent>
+  ): Promise<void> => {
+    event.preventDefault();
+
+    try {
+      const deleted = await UserAPI.deleteUser(
+        store.auth.id!,
+        store.auth.token!
+      );
+
+      if (deleted) {
+        alert(deleted.message);
+        dispatch(clearUser());
+      }
+    } catch (err) {
+      const errors = err as Error | AxiosError;
+
+      if (axios.isAxiosError(errors)) {
+        if (!errors.response) throw new Error("Erro inesperado!");
+        else
+          alert(
+            (errors.response?.data as { message: string }).message as string
+          );
+      }
+    }
   };
 
   useEffect(() => {
@@ -59,10 +87,21 @@ const Settings = (): React.ReactElement => {
         <Heading
           pointer
           type="h3"
-          weight="600"
+          weight="900"
           color="primary"
           size={isMobile ? 1 : 1.2}
-          onClick={() => handleDeleteAccount()}
+          onClick={() => dispatch(clearUser())}
+        >
+          SAIR
+        </Heading>
+
+        <Heading
+          pointer
+          type="h3"
+          weight="600"
+          color="danger"
+          size={isMobile ? 1 : 1.2}
+          onClick={(event) => handleDeleteAccount(event)}
         >
           Encerrar conta
         </Heading>
