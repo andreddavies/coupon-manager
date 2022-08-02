@@ -15,10 +15,16 @@ const Container = styled.header`
 
 const Toggle = styled.button`
   border: 0;
+  color: #fff;
   height: 24px;
   outline: none;
   cursor: pointer;
+  font-size: 0.8rem;
   background-color: transparent;
+
+  @media screen and (min-width: 1281px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const AbsoluteContainer = styled.div`

@@ -23,12 +23,11 @@ const Header = (): React.ReactElement => {
     <S.Container>
       <S.AbsoluteContainer>
         <S.Toggle
-          type="button"
-          onClick={() =>
+          onClick={() => {
             dispatch(
               setTheme({ theme: store.theme === "light" ? "dark" : "light" })
-            )
-          }
+            );
+          }}
         >
           Mudar tema
         </S.Toggle>
@@ -60,7 +59,8 @@ const Header = (): React.ReactElement => {
             size={isMobile ? 1.15 : 2}
             color={store.theme === "light" ? "secondary" : "primary"}
           >
-            Gerenciador de Cupons
+            {(store.auth.name && `Cupons de ${store.auth.name}`) ||
+              "Gerenciador de cupons"}
           </Heading>
         </S.ContentContainer>
       </CenterContainer>
