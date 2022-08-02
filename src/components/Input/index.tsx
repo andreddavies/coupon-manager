@@ -71,7 +71,7 @@ const Input = ({
   return (
     <S.Container width={width} marginVertical={marginVertical}>
       <S.InputContainer variation={variation}>
-        <S.Label htmlFor={id} focused={focused}>
+        <S.Label htmlFor={id} focused={!!value ?? focused}>
           {label}
         </S.Label>
 
@@ -85,7 +85,7 @@ const Input = ({
           variation={variation}
           onChange={handleChangeCapture}
           onFocus={() => setFocused(true)}
-          onBlur={() => !Boolean(value.length) && setFocused(false)}
+          onBlur={() => !value && setFocused(false)}
         />
       </S.InputContainer>
 
